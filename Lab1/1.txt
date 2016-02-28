@@ -1,0 +1,423 @@
+#include "stdafx.h"
+#include <windows.h>
+#include "gl.h"
+#include "glut.h"
+#include <math.h>
+#include <stdio.h>
+GLfloat anglecau4 =0;
+#define DEG2RAD (3.14159f/180.0f)
+#define PI  3.14159
+GLint angle=0;
+GLint angle1=180;
+GLint angle2=170;
+GLint angle3=160;
+GLint angle4=150;
+GLint angle5=140;
+GLint angle6=130;
+GLint angle7=120;
+GLint angle8=110;
+GLint angle9=100;
+GLint angle10=90;
+GLint angle11=80;
+GLint angle12=70;
+
+GLfloat R=0.6;
+
+void cau1() {
+	glClear(GL_COLOR_BUFFER_BIT);
+	GLfloat x = 0,y = 0,R = 0.8;
+	glColor3f(1.0,1.0,0.0);
+	glBegin(GL_POINTS);
+		for(int i = 0; i < 36;i++)
+			glVertex2f(R*cos(2*PI*i/36) + x,R*sin(2*PI*i/36) +y);		
+	glEnd();
+	glFlush();
+	glutSwapBuffers();
+}
+
+void cau2(){
+	glClear(GL_COLOR_BUFFER_BIT);
+	GLfloat x = 0,y = 0,R = 0.8;
+	glColor3f(1.0,1.0,0.0);
+	glBegin(GL_LINE_LOOP);
+		for(int i = 0; i < 36;i++)
+			glVertex2f(R*cos(2*PI*i/36) + x,R*sin(2*PI*i/36) +y);		
+	glEnd();
+	glFlush();
+	glutSwapBuffers();
+}
+
+void cau3(){
+	glClear(GL_COLOR_BUFFER_BIT);
+	GLfloat x = 0,y = 0,R = 0.8;
+	glColor3f(1.0,1.0,0.0);
+	
+		glBegin(GL_TRIANGLES);
+		for(int i = 0; i < 36;i++){
+			glVertex2f(R*cos(2*PI*i/36) + x,R*sin(2*PI*i/36) +y);		
+			glVertex2f(0,0);}
+		glEnd();
+	glFlush();
+	glutSwapBuffers();
+}
+void cau4(){
+	glClear(GL_COLOR_BUFFER_BIT);
+	GLfloat x = 0,y = 0,R = 0.8;
+	
+	
+	glBegin(GL_TRIANGLES);	
+	glColor3f(1.0,1.0,0.0);
+			glVertex2f(0, 0);
+	glVertex2f(R*cos(DEG2RAD*anglecau4), R*sin(DEG2RAD*anglecau4));
+	glVertex2f(R*cos(DEG2RAD*(anglecau4+10)), R*sin(DEG2RAD*(anglecau4+10)));
+				
+		glEnd();
+
+	glBegin(GL_TRIANGLES);	
+	glColor3f(1.0,0.0,0.0);
+			glVertex2f(0, 0);
+	glVertex2f(R*cos(DEG2RAD*(anglecau4+120)), R*sin(DEG2RAD*(anglecau4+120)));
+	glVertex2f(R*cos(DEG2RAD*(anglecau4+130)), R*sin(DEG2RAD*(anglecau4+130)));
+				
+		glEnd();
+		glBegin(GL_TRIANGLES);	
+	glColor3f(0.0,0.0,1.0);
+		glVertex2f(0, 0);
+			glVertex2f(R*cos(DEG2RAD*(anglecau4+240)), R*sin(DEG2RAD*(anglecau4+240)));
+	glVertex2f(R*cos(DEG2RAD*(anglecau4+250)), R*sin(DEG2RAD*(anglecau4+250)));
+	
+				
+		glEnd();
+	glFlush();
+	glutSwapBuffers();
+}
+
+void mydisplay(){
+	glClear(GL_COLOR_BUFFER_BIT);
+	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glLineWidth(4.0);
+	
+	glBegin(GL_LINES);
+	for (GLint i=0; i<=angle1-10; i+=10)
+	{
+		glVertex2f(R*cos(DEG2RAD*i), R*sin(DEG2RAD*i));
+		glVertex2f(R*cos(DEG2RAD*(i+10)), R*sin(DEG2RAD*(i+10)));
+	}
+	glEnd();
+	glBegin(GL_LINES);
+	glColor3f(1.0f, 0.0f, 0.0f);
+	for (GLint i=0; i<=angle2-10; i+=10)
+	{
+		glVertex2f(R*0.95*cos(DEG2RAD*i), R*0.95*sin(DEG2RAD*i));
+		glVertex2f(R*0.95*cos(DEG2RAD*(i+10)), R*0.95*sin(DEG2RAD*(i+10)));
+	}
+	glEnd();
+	glBegin(GL_LINES);
+	glColor3f(0.0f, 1.0f, 0.0f);
+	for (GLint i=0; i<=angle3-10; i+=10)
+	{
+		glVertex2f(R*0.9*cos(DEG2RAD*i), R*0.9*sin(DEG2RAD*i));
+		glVertex2f(R*0.9*cos(DEG2RAD*(i+10)), R*0.9*sin(DEG2RAD*(i+10)));
+	}
+	glEnd();
+	glBegin(GL_LINES);
+	glColor3f(0.0f, 0.0f, 1.0f);
+	for (GLint i=0; i<=angle4-10; i+=10)
+	{
+		glVertex2f(R*0.85*cos(DEG2RAD*i), R*0.85*sin(DEG2RAD*i));
+		glVertex2f(R*0.85*cos(DEG2RAD*(i+10)), R*0.85*sin(DEG2RAD*(i+10)));
+	}
+	glEnd();
+	glBegin(GL_LINES);
+	glColor3f(1.0f,1.0f, 0.0f);
+	for (GLint i=0; i<=angle5-10; i+=10)
+	{
+		glVertex2f(R*0.8*cos(DEG2RAD*i), R*0.8*sin(DEG2RAD*i));
+		glVertex2f(R*0.8*cos(DEG2RAD*(i+10)), R*0.8*sin(DEG2RAD*(i+10)));
+	}
+	glEnd();
+	glBegin(GL_LINES);
+	glColor3f(1.0f, 0.0f, 1.0f);
+	for (GLint i=0; i<=angle6-10; i+=10)
+	{
+		glVertex2f(R*0.75*cos(DEG2RAD*i), R*0.75*sin(DEG2RAD*i));
+		glVertex2f(R*0.75*cos(DEG2RAD*(i+10)), R*0.75*sin(DEG2RAD*(i+10)));
+	}
+	glEnd();
+	glBegin(GL_LINES);
+	glColor3f(0.0f, 1.0f, 1.0f);
+	for (GLint i=0; i<=angle7-10; i+=10)
+	{
+		glVertex2f(R*0.7*cos(DEG2RAD*i), R*0.7*sin(DEG2RAD*i));
+		glVertex2f(R*0.7*cos(DEG2RAD*(i+10)), R*0.7*sin(DEG2RAD*(i+10)));
+	}
+	glEnd();
+	glBegin(GL_LINES);
+	glColor3f(1.0f, 1.0f, 0.0f);
+	for (GLint i=0; i<=angle8-10; i+=10)
+	{
+		glVertex2f(R*0.65*cos(DEG2RAD*i), R*0.65*sin(DEG2RAD*i));
+		glVertex2f(R*0.65*cos(DEG2RAD*(i+10)), R*0.65*sin(DEG2RAD*(i+10)));
+	}
+	glEnd();
+	
+	glBegin(GL_LINES);
+	glColor3f(1.0f, 0.0f, 0.0f);
+	for (GLint i=0; i<=angle9-10; i+=10)
+	{
+		glVertex2f(R*0.6*cos(DEG2RAD*i), R*0.6*sin(DEG2RAD*i));
+		glVertex2f(R*0.6*cos(DEG2RAD*(i+10)), R*0.6*sin(DEG2RAD*(i+10)));
+	}
+	glEnd();
+	glBegin(GL_LINES);
+	glColor3f(0.0f, 1.0f, 1.0f);
+	for (GLint i=0; i<=angle10-10; i+=10)
+	{
+		glVertex2f(R*0.55*cos(DEG2RAD*i), R*0.55*sin(DEG2RAD*i));
+		glVertex2f(R*0.55*cos(DEG2RAD*(i+10)), R*0.55*sin(DEG2RAD*(i+10)));
+	}
+	glEnd();
+	glBegin(GL_LINES);
+	glColor3f(1.0f, 0.0f, 1.0f);
+	for (GLint i=0; i<=angle11-10; i+=10)
+	{
+		glVertex2f(R*0.5*cos(DEG2RAD*i), R*0.5*sin(DEG2RAD*i));
+		glVertex2f(R*0.5*cos(DEG2RAD*(i+10)), R*0.5*sin(DEG2RAD*(i+10)));
+	}
+	glEnd();
+	glBegin(GL_LINES);
+	glColor3f(0.0f, 1.0f, 1.0f);
+	for (GLint i=0; i<=angle12-10; i+=10)
+	{
+		glVertex2f(R*0.45*cos(DEG2RAD*i), R*0.45*sin(DEG2RAD*i));
+		glVertex2f(R*0.45*cos(DEG2RAD*(i+10)), R*0.45*sin(DEG2RAD*(i+10)));
+	}
+	glEnd();
+	glFlush();
+	glutSwapBuffers();
+}
+
+
+bool mode1 = true; // true is add
+bool mode2 = true; // true is add
+bool mode3 = true; // true is add
+bool mode4 = true; // true is add
+bool mode5 = true; // true is add
+bool mode6 = true; // true is add
+bool mode7 = true; // true is add
+bool mode8 = true; // true is add
+bool mode9 = true; // true is add
+bool mode10 = true; // true is add
+bool mode11 = true; // true is add
+bool mode12= true; // true is add
+
+
+
+void processTimer1(int value) {
+	if (mode1) {	
+		if (angle1+value > 180) {
+			mode1 = false;
+			angle1 -= value;
+		} else {
+			angle1 += value;
+		}
+	} else {
+		if (angle1-value < 0) {
+			mode1 = true;
+			angle1 += value;
+		} else {
+			angle1 -= value;
+		}
+	}
+	if (mode2) {	
+		if (angle2+value > 180) {
+			mode2 = false;
+			angle2 -= value;
+		} else {
+			angle2 += value;
+		}
+	} else {
+		if (angle2-value < 0) {
+			mode2 = true;
+			angle2 += value;
+		} else {
+			angle2 -= value;
+		}
+	}
+	if (mode3) {	
+		if (angle3+value > 180) {
+			mode3 = false;
+			angle3 -= value;
+		} else {
+			angle3 += value;
+		}
+	} else {
+		if (angle3-value < 0) {
+			mode3 = true;
+			angle3 += value;
+		} else {
+			angle3 -= value;
+		}
+
+	}if (mode4) {	
+		if (angle4 +value > 180) {
+			mode4 = false;
+			angle4 -= value;
+		} else {
+			angle4 += value;
+		}
+	} else {
+		if (angle4-value < 0) {
+			mode4 = true;
+			angle4 += value;
+		} else {
+			angle4 -= value;
+		}
+	}
+
+	if (mode5) {	
+		if (angle5+value > 180) {
+			mode5 = false;
+			angle5 -= value;
+		} else {
+			angle5 += value;
+		}
+	} else {
+		if (angle5-value < 0) {
+			mode5 = true;
+			angle5 += value;
+		} else {
+			angle5 -= value;
+		}
+	}
+
+	if (mode6) {	
+		if (angle6+value > 180) {
+			mode6 = false;
+			angle6 -= value;
+		} else {
+			angle6 += value;
+		}
+	} else {
+		if (angle6-value < 0) {
+			mode6 = true;
+			angle6 += value;
+		} else {
+			angle6 -= value;
+		}
+	}
+
+	if (mode7) {	
+		if (angle7+value > 180) {
+			mode7 = false;
+			angle7 -= value;
+		} else {
+			angle7 += value;
+		}
+	} else {
+		if (angle7-value < 0) {
+			mode7 = true;
+			angle7 += value;
+		} else {
+			angle7 -= value;
+		}
+	}
+	if (mode8) {	
+		if (angle8+value > 180) {
+			mode8 = false;
+			angle8 -= value;
+		} else {
+			angle8 += value;
+		}
+	} else {
+		if (angle8-value < 0) {
+			mode8 = true;
+			angle8 += value;
+		} else {
+			angle8 -= value;
+		}
+	}
+
+	if (mode9) {	
+		if (angle9+value > 180) {
+			mode9 = false;
+			angle9 -= value;
+		} else {
+			angle9 += value;
+		}
+	} else {
+		if (angle9-value < 0) {
+			mode9 = true;
+			angle9 += value;
+		} else {
+			angle9 -= value;
+		}
+	}
+
+	if (mode10) {	
+		if (angle10+value > 180) {
+			mode10 = false;
+			angle10 -= value;
+		} else {
+			angle10+= value;
+		}
+	} else {
+		if (angle10-value < 0) {
+			mode10 = true;
+			angle10 += value;
+		} else {
+			angle10-= value;
+		}
+	}
+	
+	if (mode11) {	
+		if (angle11+value > 180) {
+			mode11 = false;
+			angle11 -= value;
+		} else {
+			angle11 += value;
+		}
+	} else {
+		if (angle11-value < 0) {
+			mode11 = true;
+			angle11 += value;
+		} else {
+			angle11 -= value;
+		}
+	}
+
+	if (mode12) {	
+		if (angle12+value > 180) {
+			mode12 = false;
+			angle12 -= value;
+		} else {
+			angle12 += value;
+		}
+	} else {
+		if (angle12-value < 0) {
+			mode12 = true;
+			angle12 += value;
+		} else {
+			angle12 -= value;
+		}
+	}
+
+	glutTimerFunc(40, processTimer1, 10);
+	glutPostRedisplay();
+}
+void processTimer(int value){
+	anglecau4 += (GLfloat)value;
+	if(anglecau4 > 360) anglecau4 = anglecau4 - 360.0f;
+	glutTimerFunc(10, processTimer, 10);
+	glutPostRedisplay();
+}
+
+int main(int argc, char** argv){
+	angle = 0.0f;
+	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
+	glutCreateWindow("Lab1");
+	glutDisplayFunc(mydisplay);
+	glutTimerFunc(100, processTimer1, 10);
+	glutMainLoop();
+}
