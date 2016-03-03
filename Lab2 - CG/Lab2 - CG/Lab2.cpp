@@ -55,6 +55,12 @@ void myDisplay()
 		sphere.DrawWireframe();
 	else if (nChoice == 4)
 		cylinder.DrawWireframe();
+	else if (nChoice == 5)
+		{
+			//geoblock1.DrawWireframe();
+			//geoblock2.DrawWireframe();
+			geoblock3.DrawWireframe();
+		}
 	glViewport(screenWidth / 2, 0, screenWidth / 2, screenHeight);
 
 	drawAxis();
@@ -66,7 +72,13 @@ void myDisplay()
 		sphere.DrawColor();
 	else if (nChoice == 4)
 		cylinder.DrawColor();
-
+	else if (nChoice == 5) 
+		{
+			//geoblock1.DrawColor();
+			//geoblock2.DrawColor();
+			geoblock3.DrawColor();
+		}
+		
 	glFlush();
 	glutSwapBuffers();
 }
@@ -88,9 +100,10 @@ void myInit()
 int main()
 {
 	cout << "1. Tetrahedron" << endl;
-	cout << "2. Cube" << endl;
+	cout << "2. Cuboid" << endl;
 	cout << "3. Sphere" << endl;
 	cout << "4. Cylinder" << endl;
+	cout << "5. Two circle" << endl;
 	cout << "Input the choice: " << endl;
 	cin >> nChoice;
 
@@ -101,7 +114,8 @@ int main()
 	glutCreateWindow("Lab 2"); // open the screen window
 
 	tetrahedron.CreateTetrahedron();
-	cube.CreateCube(1);
+	//cube.CreateCube(1);
+	cube.CreateCuboid(2, 1, 1);
 	cylinder.CreateCylinder(15, 3, 1);
 	geoblock1.twocicleblock(1, 1, 1, 1);
 	geoblock2.twocicleblock(0.55, 1, 1.5, 0.65);
