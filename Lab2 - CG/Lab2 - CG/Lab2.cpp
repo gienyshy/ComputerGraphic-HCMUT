@@ -58,8 +58,8 @@ void myDisplay()
 	else if (nChoice == 5)
 		{
 			//geoblock1.DrawWireframe();
-			//geoblock2.DrawWireframe();
-			geoblock3.DrawWireframe();
+			geoblock2.DrawWireframe();
+			//geoblock3.DrawWireframe();
 		}
 	glViewport(screenWidth / 2, 0, screenWidth / 2, screenHeight);
 
@@ -75,8 +75,8 @@ void myDisplay()
 	else if (nChoice == 5) 
 		{
 			//geoblock1.DrawColor();
-			//geoblock2.DrawColor();
-			geoblock3.DrawColor();
+			geoblock2.DrawColor();
+			//geoblock3.DrawColor();
 		}
 		
 	glFlush();
