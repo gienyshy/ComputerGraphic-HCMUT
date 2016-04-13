@@ -1,4 +1,4 @@
-#include <GL/glut.h>
+#include <glut.h>
 #include <math.h>
 #include <stdio.h>
 GLfloat offset;
